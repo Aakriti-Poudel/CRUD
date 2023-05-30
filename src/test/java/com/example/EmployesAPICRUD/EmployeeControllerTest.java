@@ -35,9 +35,9 @@ public class EmployeeControllerTest extends MvcBaseTest {
     @Test
     public void createEmployeeWithValidData() throws Exception {
         Employee employee= new Employee();
-        employee.setEmpid(17);
-        employee.setEmp_name("Aradhana Wagle");
-        employee.setEmp_city("kathmandu");
+        employee.setEmpid(3);
+        employee.setEmp_name("Aradhana");
+        employee.setEmp_city("pkr");
         String jsonRequest =om.writeValueAsString(employee);
         MvcResult result = mvc.perform(post("/api/employees")
                 .content(jsonRequest)
@@ -51,7 +51,7 @@ public class EmployeeControllerTest extends MvcBaseTest {
 
     @Test
     public void getEmployeeWithValidId() throws Exception {
-        MvcResult result = mvc.perform(get("/api/employees/10")
+        MvcResult result = mvc.perform(get("/api/employees/5")
                         .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status",is("OK")))
